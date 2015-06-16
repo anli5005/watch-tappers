@@ -3,34 +3,85 @@ this.WatchTappers = {
 		tapsRaw: [0], // 1000^0 is the first entry, 1000^1 is the next, 1000^2 is after that, and so on...
 		tappers: {},
 		watch: {
-			id: "test-watch-1",
+			id: "cheapest-watch",
 			upgrade: 0
 		}
 	},
 	
 	upgrades: {
 		watches: {
-			"test-watch-1": {
-				name: "Test watch 1",
-				priority: 0,
-				price: {taps: 1, powerOf: 0},
+			"cheapest-watch": {
+				name: "CheapestWatch",
+				priority: 2,
+				price: {taps: 0, powerOf: 0},
 				perTap: {taps: 1, powerOf: 0},
-				offline: {prod: 1.0, hours: 1},
-				faces: ["test-watch-face"],
-				upgrades: []
-			},
-			"test-watch-2": {
-				name: "Test watch 2",
-				priority: 0,
-				price: {taps: 1, powerOf: 1},
-				perTap: {taps: 500, powerOf: 0},
-				offline: {prod: 1.0, hours: 1},
-				faces: ["test-watch-face"],
+				offline: {prod: 0, hours: 0},
+				faces: {"cheapest-watch-face1": "The Old Face"},
 				upgrades: [{
-					price: {taps: 1500, powerOf: 0},
-					perTap: {taps: 1, powerOf: 1}
+					price: {taps: 144, powerOf: 0},
+					perTap: {taps: 12, powerOf: 0},
+					offline: {prod: 0, hours: 0},
+					faces: {"cheapest-watch-face2": "The New Face"}
+				},
+				{
+					price: {taps: 288, powerOf: 0},
+					perTap: {taps: 24, powerOf: 0},
+					offline: {prod: 0.05, hours: 1},
+					faces: {}
+				}]
+			},
+			"cheaper-watch": {
+				name: "CheaperWatch",
+				priority: 1,
+				price: {taps: 640, powerOf: 0},
+				perTap: {taps: 64, powerOf: 0},
+				offline: {prod: 0.1, hours: 1},
+				faces: {"cheaper-watch-red": "Analog Red"},
+				upgrades: [{
+					price: {taps: 1280, powerOf: 0},
+					perTap: {taps: 128, powerOf: 0},
+					offline: {prod: 0.125, hours: 1},
+					faces: {"cheaper-watch-yellow": "Analog Yellow"}
+				},
+				{
+					price: {taps: 1920, powerOf: 0},
+					perTap: {taps: 192, powerOf: 0},
+					offline: {prod: 0.15, hours: 1},
+					faces: {"cheaper-watch-green": "Analog Green"}
+				},
+				{
+					price: {taps: 2560, powerOf: 0},
+					perTap: {taps: 256, powerOf: 0},
+					offline: {prod: 0.175, hours: 1.5},
+					faces: {"cheaper-watch-blue": "Analog Blue"}
 				}
 				]
+			},
+			"cheap-watch": {
+				name: "CheapWatch",
+				priority: 1,
+				price: {taps: 6, powerOf: 1},
+				perTap: {taps: 1, powerOf: 1},
+				offline: {prod: 0.2, hours: 1.5},
+				faces: {"cheap-watch-analog": "Analog"},
+				upgrades: [{
+					price: {taps: 9, powerOf: 1},
+					perTap: {taps: 3, powerOf: 1},
+					offline: {prod: 0.225, hours: 1.5},
+					faces: {}
+				},
+				{
+					price: {taps: 12, powerOf: 1},
+					perTap: {taps: 4, powerOf: 1},
+					ofline: {prod: 0.25, hours: 1.5},
+					faces: {"cheap-watch-digital": "Digital"}
+				},
+				{
+					price: {taps: 15, powerOf: 1},
+					perTap: {taps: 5, powerOf: 1},
+					offline: {prod: 0.3, hours: 2},
+					faces: {}
+				}]
 			}
 		},
 		tappers: {
@@ -157,10 +208,11 @@ this.WatchTappers = {
 			this.addTaps(TPS.taps, TPS.powerOf);
 		},
 		
-		startTapperCycle: function() {
-			return window.setInterval(function(t) {
+		startTapperCycle: function(c) {
+			return window.setInterval(function(t, c) {
 				t.addTapsPerSecond.call(t);
-			}, 1000, this);
+				c();
+			}, 1000, this, c);
 		},
 		
 		// WATCH HANDLING
