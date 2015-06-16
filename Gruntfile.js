@@ -32,7 +32,8 @@ module.exports = function(grunt) {
 					mangle: false
 				},
 				files: {
-					"js/watch-tappers.js": "js/watch-tappers.min.js"
+					"js/watch-tappers.min.js": "js/watch-tappers.js",
+					"js/watch-tappers-core.min.js": "js/watch-tappers-core.js"
 				}
 			}
 		}
