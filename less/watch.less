@@ -1,0 +1,25 @@
+.watch-main {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: @watch-main-z;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.watch-face-digital.watch-face-24hours .watch-12hour {
+  display: none;
+}
+
+.watch-face-digital .watch-seperator::before {
+  content: ":";
+}
+
+.watch-screen {
+  overflow: auto;
+}

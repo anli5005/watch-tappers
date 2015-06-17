@@ -1,0 +1,89 @@
+/*
+ * WATCH TAPPERS
+ * by anli5005
+ * 
+ * CSS styles
+ * 
+ */
+/* CORE CSS - Resets, basic styles, & more */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+html,
+body,
+div {
+  padding: 0;
+  display: block;
+}
+body {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/* BACKGROUND - Background colors and the arm */
+body {
+  background-color: #2196f3;
+}
+.arm {
+  background-image: linear-gradient(to bottom, SeaShell, PeachPuff);
+  height: 20%;
+  width: 100%;
+}
+.watch-main {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.watch-face-digital.watch-face-24hours .watch-12hour {
+  display: none;
+}
+.watch-face-digital .watch-seperator::before {
+  content: ":";
+}
+.watch-screen {
+  overflow: auto;
+}
+/* WATCH UPGRADES - The custom upgrades. */
+/* CheapestWatch */
+.watch-cheapest-watch .watch-main {
+  width: 90%;
+  height: 240pt;
+  margin-top: -120pt;
+  font-family: "Bad Script", cursive, serif;
+  background-color: SaddleBrown;
+  border: 5px solid orange;
+}
+.watch-cheapest-watch .watch-screen {
+  background-color: SeaShell;
+  color: brown;
+  width: 200pt;
+  height: 200pt;
+}

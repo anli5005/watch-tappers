@@ -7,15 +7,19 @@ module.exports = function(grunt) {
 		},
 		concat: {
 			js: {
-				src: ["js/watch-tappers-core.js"],
+				src: ["js/watch-tappers-core.js", "js/watch-tappers-ui.js"],
 				dest: "js/watch-tappers.js"
 			}
 		},
 		less: {
 			styles: {
-				// TODO: Add Autoprefixer
+				options: {
+					plugins: [
+					new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]})
+					]
+				},
 				files: {
-					"less/watch-tappers.less": "css/watch-tappers.css"
+					"css/watch-tappers.css": "less/watch-tappers.less"
 				}
 			}
 		},
@@ -33,7 +37,8 @@ module.exports = function(grunt) {
 				},
 				files: {
 					"js/watch-tappers.min.js": "js/watch-tappers.js",
-					"js/watch-tappers-core.min.js": "js/watch-tappers-core.js"
+					"js/watch-tappers-core.min.js": "js/watch-tappers-core.js",
+					"js/watch-tappers-ui.min.js": "js/watch-tappers-ui.js"
 				}
 			}
 		}

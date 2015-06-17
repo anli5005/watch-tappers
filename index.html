@@ -1,13 +1,80 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta name="viewport" content="initial-scale=1" />
 		<title>Watch Tappers</title>
 		
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+		<link href="http://fonts.googleapis.com/css?family=Bad+Script|Nova+Mono|Indie+Flower" rel="stylesheet" />
 		<link rel="stylesheet" href="css/watch-tappers.min.css" />
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="js/watch-tappers.min.js"></script>
+		
+		<script>
+			$(document).ready(function () {
+				window.WatchTappersUI.run({
+					jQuery: $,
+					core: window.WatchTappers
+				});
+			});
+		</script>
 	</head>
 	<body>
+		
+		<div class="arm"></div>
+		
+		<div class="watch">
+			
+			<div class="watch-band"></div>
+			
+			<div class="watch-particles">
+				<span class="particle fa"></span>
+				<span class="particle fa"></span>
+				<span class="particle fa"></span>
+			</div>
+			
+			<div class="watch-main">
+				
+				<div class="watch-screen" id="content">
+					
+					<div class="watch-face">
+						<div class="watch-face-analog">
+							
+						</div>
+						<div class="watch-face-digital">
+							<span class="watch-hour"></span>
+							<span class="watch-seperator"></span>
+							<span class="watch-minute"></span>
+							<span class="watch-seperator"></span>
+							<span class="watch-second"></span>
+							<span class="watch-12hour"></span>
+						</div>
+						<div class="watch-face-custom">
+							
+						</div>
+					</div>
+					
+					<div class="watch-tap-counter">
+						<div class="watch-tap-counter-num"></div>
+						<div class="watch-tap-counter-units">
+							<span class="watch-tap-counter-exponent"></span>
+						</div>
+					</div>
+					
+					<div class="watch-menu">
+						
+					</div>
+					
+				</div>
+				
+				<div class="watch-buttons">
+					<div class="watch-button-menu"></div>
+					<div class="watch-button-taps"></div>
+				</div>
+				
+			</div>
+			
+		</div>
 		
 	</body>
 </html>
